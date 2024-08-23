@@ -2,6 +2,7 @@ import React ,{useState}from 'react'
 
 function DisableButton() {
     const[text,setText]=useState("");
+    //handler function for changing value of text box 
     const handleChange=(e)=> {
         setText(e.target.value);
        }
