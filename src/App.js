@@ -1,8 +1,12 @@
-import DisableButton from "./Projects/DisableButton";
+
+//import DisableButton from "./Projects/DisableButton";
+import AnnoyingButton from "./Projects/AnnoyingButton";
 function App() {
+ 
   return (
    <>
-<DisableButton/>
+{/*<DisableButton/>*/}
+<AnnoyingButton/>
    </>
   );
 }
