@@ -6,20 +6,22 @@ function AnnoyingButton() {
         password:'',
     });
     const [toggle,setToggle]=useState(false);
-    console.log(form.email.length);
+    //onchange input fields
     function handleChange(event){
       setForm((prevState) =>({
         ...prevState,[event.target.name]:event.target.value
       }))
-    }
+    } 
+    //on mouse enter handler
     const annoySubmitButton=()=>{
         if (form.password.length < 6) {
             setToggle((prevState) => !prevState);
           }
     }
+    //handler function on form submit
     const handleSubmit=(e) =>{
     e.preventDefault();
-    alert("form submitted");
+    alert("Thanks, the form was submitted");
     setForm({
         email:'',
         password:'',
@@ -30,6 +32,7 @@ function AnnoyingButton() {
       <h1 className='font-bold text-3xl'>Annoying Submit Button 😡</h1>
       <form className='flex flex-col mt-16 w-[400px] gap-4' method='post' onSubmit={handleSubmit}>
       <div className='flex flex-col'>
+      {/*email input field */}
       <label className='font-semibold'>Email
           <span className='text-[red]'>&nbsp;*</span></label>
           <input className={`pl-3 ${(form.email.length>6) ? ('border-[#03bb56] border-2 text-[#03bb56]') 
@@ -38,6 +41,7 @@ function AnnoyingButton() {
            minLength={6} placeholder='example@example.com' onChange={handleChange} required/>
       </div>
       <div className='flex flex-col'>
+       {/*password input field */}
        <label className='font-semibold'>Password
           <span className='text-[red]'>&nbsp;*</span></label>
           <input className={`${(form.password.length>6) ? ('border-[#03bb56] border-2 text-[#03bb56]') 
@@ -45,13 +49,14 @@ function AnnoyingButton() {
           value={form.password} type='password' name="password" minLength={6}  onChange={handleChange} required/>
           
           <div className='text-[#ff0000] text-[12px] leading-8'>
-          {form.password.length<6? (<p>Password length should be more then 6</p>):<p></p>}</div>
+          {form.password.length <= 6? (<p>Password length should be more then 6</p>):<p>&nbsp;</p>}</div>
          </div>
-        <div className={`flex ${(toggle)? 'text-[#454d56] justify-end': 'text-[#2354f7] justify-start'} w-[400px]`}></div>
-        <button className={`text-white outline-none font-semibold bg-slate-400 w-[120px] rounded-lg px-2 py-2 
-        ${(toggle)? 'bg-[#03bb56] justify-start': 'bg-[#000] justify-end mr-0'}`}
+        <div className={`flex ${(toggle)? 'justify-end': 'justify-start'}`}>
+        <button className={`text-white outline-none font-semibold w-[120px] rounded-lg px-2 py-2 
+        ${(form.password.length>6)? 'bg-[#03bb56]': 'bg-[#000000]'}`}
         onMouseEnter={annoySubmitButton}
         >Submit</button>
+        </div>
       </form>
     </div>
   )
