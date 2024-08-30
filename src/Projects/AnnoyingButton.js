@@ -52,7 +52,7 @@ function AnnoyingButton() {
           {form.password.length <= 6? (<p>Password length should be more then 6</p>):<p>&nbsp;</p>}</div>
          </div>
         <div className={`flex ${(toggle)? 'justify-end': 'justify-start'}`}>
-        <button className={`text-white outline-none font-semibold w-[120px] rounded-lg px-2 py-2 
+        <button className={`text-white outline-none font-semibold w-[120px]  rounded-lg px-2 py-2 
         ${(form.password.length>6)? 'bg-[#03bb56]': 'bg-[#000000]'}`}
         onMouseEnter={annoySubmitButton}
         >Submit</button>
